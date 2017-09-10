@@ -12,7 +12,6 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import com.example.chengjie.ui.R;
 
@@ -33,7 +32,7 @@ public class Login extends Activity {
         findViewById(R.id.btn_login).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(context,Main.class));
+                startActivity(new Intent(context,MainActivity.class));
             }
         });
 

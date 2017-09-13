@@ -33,6 +33,7 @@ public class Login extends Activity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(context,MainActivity.class));
+                finish();
             }
         });
 

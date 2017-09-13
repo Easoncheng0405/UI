@@ -27,10 +27,11 @@
                 android:orientation="vertical" >
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/imhome"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/fragmentation_help" />
+                    android:src="@drawable/home" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -54,10 +55,11 @@
                 android:orientation="vertical" >
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/imcommunity"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_password_flag" />
+                    android:src="@drawable/earth" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -81,10 +83,11 @@
                 android:orientation="vertical" >
 
                 <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:id="@+id/immy"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:layout_gravity="center_horizontal"
-                    android:src="@drawable/ic_mobile_flag" />
+                    android:src="@drawable/my" />
 
                 <TextView
                     android:layout_width="wrap_content"

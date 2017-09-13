@@ -1,28 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
 
     <chengjie.base.ObservableScrollView
         android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <LinearLayout
-            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <com.youth.banner.Banner
                 android:id="@+id/banner"
                 android:layout_width="match_parent"
                 android:layout_height="200dp" />
 
-            <TextView
-                android:id="@+id/text"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="3000dp" />
+                android:layout_height="100dp"
+                android:background="#FFFFFF">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewGage"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:id="@+id/list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginBottom="8dp"
+                    android:gravity="center"
+                    android:orientation="horizontal" />
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="170dp">
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/tea_shape"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:paddingTop="10dp">
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="76dp"
+                        android:layout_weight="2"
+                        android:background="@mipmap/fluidicon" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="7"
+                        android:orientation="vertical">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="3">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:paddingTop="3dp"
+                                android:text="吉林大学珠海学院"
+                                android:textColor="@color/black"
+                                android:textSize="18dp" />
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp"
+                                android:text="计算机科学与技术专业"
+                                android:textSize="13dp" />
+                        </RelativeLayout>
+
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2"
+                            android:orientation="horizontal">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="15dp">
+
+                                <ImageView
+
+                                    android:layout_width="20dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/star" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/star" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/star" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/star" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="match_parent"
+                                    android:background="@drawable/star" />
+                            </LinearLayout>
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="2">
+
+                            <TextView
+
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_alignParentRight="true"
+                                android:text="语文 数学 英语"
+                                android:textSize="13dp" />
+                        </RelativeLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/tea_shape"
+                android:orientation="horizontal">
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/tea_shape"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/tea_shape"
+                android:orientation="horizontal" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/tea_shape"
+                android:orientation="horizontal" />
         </LinearLayout>
     </chengjie.base.ObservableScrollView>
 
@@ -33,47 +191,48 @@
         android:background="#00000000"
         android:minHeight="?attr/actionBarSize"
         android:paddingTop="10dp">
+
         <LinearLayout
-            android:paddingLeft="15dp"
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            >
+            android:orientation="horizontal"
+            android:paddingLeft="15dp">
 
             <LinearLayout
-                android:orientation="horizontal"
                 android:layout_width="280dp"
                 android:layout_height="25dp"
-                android:background="@drawable/shape_corner">
+                android:background="@drawable/shape_corner"
+                android:orientation="horizontal">
 
                 <ImageView
-                    android:scaleType="centerCrop"
-                    android:paddingLeft="10dp"
                     android:id="@+id/logo"
                     android:layout_width="30dp"
                     android:layout_height="match_parent"
-                    android:src="@mipmap/search"
-                    />
+                    android:paddingLeft="10dp"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/search" />
 
                 <TextView
-                    android:paddingLeft="10dp"
+                    android:id="@+id/textView"
                     android:layout_width="100dp"
                     android:layout_height="30dp"
                     android:layout_weight="1"
-                    android:id="@+id/textView"
-                    android:textColor="#979797"
-                    android:textSize="18sp"
-                    android:text="请输入查找内容"
                     android:paddingBottom="6dp"
-                    android:textColorHint="#2C2C2C"/>
+                    android:paddingLeft="10dp"
+                    android:text="请输入查找内容"
+                    android:textColor="#979797"
+                    android:textColorHint="#2C2C2C"
+                    android:textSize="18sp" />
             </LinearLayout>
-
+            <TextView
+                android:layout_width="10dp"
+                android:layout_height="match_parent" />
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="25dp"
-                app:srcCompat="@mipmap/messagewhite"
+                android:paddingLeft="15dp"
                 android:id="@+id/imageView"
-                android:layout_weight="1" />
+                android:layout_width="30dp"
+                android:layout_height="25dp"
+                android:background="@drawable/messagewhite" />
 
         </LinearLayout>
     </android.support.v7.widget.Toolbar>

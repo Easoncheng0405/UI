@@ -11,14 +11,14 @@
         android:roundIcon="@mipmap/fluidicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="chengjie.aty.Login" />
-        <activity android:name="chengjie.aty.MainActivity">
+        <activity android:name="chengjie.aty.Login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name="chengjie.aty.MainActivity"/>
     </application>
 
 </manifest>

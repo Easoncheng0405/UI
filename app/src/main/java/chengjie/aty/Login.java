@@ -21,8 +21,11 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.example.chengjie.ui.R;
+
+import chengjie.base.RxDialogEditSureCancel;
 
 
 public class Login extends Activity {
@@ -67,6 +70,13 @@ public class Login extends Activity {
             }
         });
 
+        findViewById(R.id.regist).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(context,Regist.class));
+            }
+        });
+
         passWord.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -92,6 +102,8 @@ public class Login extends Activity {
     }
 
     private void init() {
+
+
         passWord = (EditText) findViewById(R.id.et_password);
         info = (EditText) findViewById(R.id.et_mobile);
         mScrollView=(ScrollView)findViewById(R.id.scrollView);
@@ -173,8 +185,4 @@ public class Login extends Activity {
         mAnimatorSet.start();
     }
 
-    public boolean isFullScreen(Activity activity) {
-        return (activity.getWindow().getAttributes().flags &
-                WindowManager.LayoutParams.FLAG_FULLSCREEN) == WindowManager.LayoutParams.FLAG_FULLSCREEN;
-    }
 }

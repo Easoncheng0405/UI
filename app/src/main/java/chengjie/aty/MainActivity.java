@@ -65,6 +65,8 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
 
         fragmentManager = getFragmentManager();
         initViews();
+        setTabSelection(2);
+        setTabSelection(1);
         setTabSelection(0);
     }
 
@@ -84,10 +86,25 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
     @Override
     protected void onStart() {
         super.onStart();
-        intiHome();
+        initHome();
+        initCommunity();
+        initMy();
     }
 
-    private void intiHome() {
+    private void initCommunity(){   //在这里初始化社区组件
+
+    }
+
+    private void initMy(){        //在这里初始化我的界面组件
+        myFragment.getView().findViewById(R.id.settingsTextView).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this,"123",Toast.LENGTH_LONG).show();
+            }
+        });
+    }
+
+    private void initHome() {       //在这里初始化主界面组件
         banner = (Banner) homeFragment.getView().findViewById(R.id.banner);
         scrollView = (ObservableScrollView) homeFragment.getView().findViewById(R.id.scrollView);
         toolbar = (Toolbar) homeFragment.getView().findViewById(R.id.activity_main_toolbar);
@@ -136,11 +153,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
     }
 
     private void setTabSelection(int index) {
-        // 每次选中之前先清楚掉上次的选中状态
-        clearSelection();
-        // 开启一个Fragment事务
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        // 先隐藏掉所有的Fragment，以防止有多个Fragment显示在界面上的情况
         hideFragments(transaction);
         switch (index) {
             case 0:
@@ -148,11 +161,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
                 imCommunity.setImageResource(R.drawable.earth);
                 imMy.setImageResource(R.drawable.my);
                 if (homeFragment == null) {
-                    // 如果MessageFragment为空，则创建一个并添加到界面上
                     homeFragment = new HomeFragment();
                     transaction.add(R.id.content, homeFragment);
                 } else
-                    // 如果MessageFragment不为空，则直接将它显示出来
                     transaction.show(homeFragment);
 
                 break;
@@ -162,11 +173,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
                 imMy.setImageResource(R.drawable.my);
 
                 if (communityFragment == null) {
-                    // 如果ContactsFragment为空，则创建一个并添加到界面上
                     communityFragment = new CommunityFragment();
                     transaction.add(R.id.content, communityFragment);
                 } else
-                    // 如果ContactsFragment不为空，则直接将它显示出来
                     transaction.show(communityFragment);
                 break;
             case 2:
@@ -175,11 +184,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
                 imMy.setImageResource(R.drawable.mys);
 
                 if (myFragment == null) {
-                    // 如果NewsFragment为空，则创建一个并添加到界面上
                     myFragment = new MyFragment();
                     transaction.add(R.id.content, myFragment);
                 } else {
-                    // 如果NewsFragment不为空，则直接将它显示出来
                     transaction.show(myFragment);
                 }
                 break;

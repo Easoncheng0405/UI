@@ -62,8 +62,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        initViews();
+
         fragmentManager = getFragmentManager();
+        initViews();
         setTabSelection(0);
     }
 
@@ -83,6 +84,10 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
     @Override
     protected void onStart() {
         super.onStart();
+        intiHome();
+    }
+
+    private void intiHome() {
         banner = (Banner) homeFragment.getView().findViewById(R.id.banner);
         scrollView = (ObservableScrollView) homeFragment.getView().findViewById(R.id.scrollView);
         toolbar = (Toolbar) homeFragment.getView().findViewById(R.id.activity_main_toolbar);
@@ -98,7 +103,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
                 .setOnBannerListener(MainActivity.this)
                 .start();
         banner.setBannerAnimation(AccordionTransformer.class);
-        banner.setDelayTime(3000 );
+        banner.setDelayTime(3000);
         banner.updateBannerStyle(BannerConfig.CIRCLE_INDICATOR_TITLE_INSIDE);
         scrollView.setOnObservableScrollViewListener(MainActivity.this);
         mPager = (ViewPager) findViewById(R.id.viewGage);
@@ -107,7 +112,7 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
 
         inflater = LayoutInflater.from(this);
         //总页数=总数/每页的个数，取整
-        pageCount=0;
+        pageCount = 0;
         pageCount = (int) Math.ceil(mDatas.size() * 1.0 / pageSize);
 
         mPagerList = new ArrayList<>();
@@ -146,10 +151,10 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
                     // 如果MessageFragment为空，则创建一个并添加到界面上
                     homeFragment = new HomeFragment();
                     transaction.add(R.id.content, homeFragment);
-                } else {
+                } else
                     // 如果MessageFragment不为空，则直接将它显示出来
                     transaction.show(homeFragment);
-                }
+
                 break;
             case 1:
                 imHome.setImageResource(R.drawable.home);
@@ -282,5 +287,9 @@ public class MainActivity extends Activity implements View.OnClickListener, Obse
             mDatas.add(new Model(titles[i], imageId));
         }
 
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
     }
 }

@@ -7,7 +7,7 @@
 
     <android.support.v7.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:background="@color/toolbar">
 
         <RelativeLayout
@@ -16,24 +16,20 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
             <ImageView
+                android:layout_marginTop="12dp"
                 android:id="@+id/message"
-                android:layout_centerVertical="true"
                 android:background="@mipmap/email"
                 android:layout_alignParentRight="true"
-                android:layout_alignParentBottom="true"
                 android:layout_width="25dp"
                 android:layout_height="25dp" />
             <ImageView
                 android:id="@+id/settings"
-                android:layout_alignParentBottom="true"
+                android:layout_marginTop="12dp"
                 android:background="@mipmap/setting"
                 android:layout_width="25dp"
                 android:layout_height="25dp"
-                android:layout_alignTop="@id/message"
                 android:layout_toLeftOf="@id/message"
-                android:layout_toStartOf="@id/message"
-                android:layout_marginRight="16dp"
-                android:layout_marginEnd="16dp" />
+                android:layout_marginRight="16dp" />
         </RelativeLayout>
     </android.support.v7.widget.Toolbar>
 
@@ -52,13 +48,30 @@
 
 
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:layout_height="70dp"
                 android:background="@color/toolbar">
                 <ImageView
+                    android:id="@+id/head"
                     android:layout_centerVertical="true"
                     android:background="@mipmap/fluidicon"
-                    android:layout_width="45dp"
-                    android:layout_height="45dp" />
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:id="@+id/userName"
+                    android:text="用户名"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_toRightOf="@id/head"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:text="158****2084"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_toRightOf="@id/head"
+                    android:layout_below="@id/userName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
             </RelativeLayout>
             <LinearLayout
                 android:background="@color/white"
@@ -157,9 +170,11 @@
                 android:layout_height="50dp"
                 android:layout_marginTop="20dp"
                 stv:sDividerLineType="both"
-                stv:sLeftTextString="关于微博"
+                stv:sLeftTextString="关于我们"
                 stv:sRightIconRes="@drawable/arrow_right_red" />
-
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="150dp"></LinearLayout>
         </LinearLayout>
     </ScrollView>
 

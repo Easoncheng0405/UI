@@ -3,15 +3,17 @@ package chengjie.base;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.text.InputType;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.chengjie.ui.R;
 
 
-public class RxDialogEditSureCancel extends RxDialog {
+public class InputDialog extends BaseDialog {
 
     private TextView mTvSure;
     private TextView mTvCancel;
@@ -21,6 +23,7 @@ public class RxDialogEditSureCancel extends RxDialog {
     private TextView time;
     private Context context;
     private Activity activityContext;
+
     public void setTitle(String title) {
         mTvTitle.setText(title);
     }
@@ -73,8 +76,14 @@ public class RxDialogEditSureCancel extends RxDialog {
         mTvCancel = (TextView) dialog_view.findViewById(R.id.tv_cancle);
         editText = (EditText) dialog_view.findViewById(R.id.editText);
         mTvContent = (TextView) dialog_view.findViewById(R.id.tv_title);
-        time=(TextView)dialog_view.findViewById(R.id.time);
+        time = (TextView) dialog_view.findViewById(R.id.time);
         time.setVisibility(TextView.INVISIBLE);
+        time.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                start(60);
+            }
+        });
         setContentView(dialog_view);
     }
 
@@ -83,31 +92,37 @@ public class RxDialogEditSureCancel extends RxDialog {
     }
 
 
-
-    public RxDialogEditSureCancel(Context context) {
+    public InputDialog(Context context) {
         super(context);
         initView();
-        this.context=context;
-        this.activityContext=(Activity)context;
+        this.context = context;
+        this.activityContext = (Activity) context;
     }
 
 
-    public void start(final int waitTime){
+    public void start(final int waitTime) {
+        mTvTitle.setText("输入验证码");
+        mTvTitle.setTextSize(18);
+        editText.setHint("");
+        editText.setInputType(InputType.TYPE_CLASS_NUMBER);
         time.setVisibility(TextView.VISIBLE);
+        time.setEnabled(false);
+        time.setTextColor(Color.rgb(165, 165, 165));
         new Thread(new Runnable() {
             @Override
             public void run() {
-                for(int i=waitTime;i>=0;i--){
+                for (int i = waitTime; i >= 0; i--) {
                     try {
                         Thread.sleep(1000);
-                        final int t=i;
+                        final int t = i;
                         activityContext.runOnUiThread(new Runnable() {
                             @Override
                             public void run() {
-                                time.setText("重新发送("+t+") ");
-                                if(t==0){
+                                time.setText("重新发送(" + t + ") ");
+                                if (t == 0) {
+                                    time.setEnabled(true);
                                     time.setText("重新发送 ");
-                                    time.setTextColor(Color.argb(255,255,105,180));
+                                    time.setTextColor(Color.argb(255, 255, 105, 180));
                                 }
                             }
                         });
@@ -118,10 +133,5 @@ public class RxDialogEditSureCancel extends RxDialog {
             }
         }).start();
     }
-
-
-
-
-
 
 }

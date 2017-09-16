@@ -11,7 +11,7 @@ import android.view.WindowManager.LayoutParams;
 import com.example.chengjie.ui.R;
 
 
-public class RxDialog extends Dialog {
+public class BaseDialog extends Dialog {
 
     protected Context mContext;
 
@@ -21,17 +21,17 @@ public class RxDialog extends Dialog {
         return mLayoutParams;
     }
 
-    public RxDialog(Context context, int themeResId) {
+    public BaseDialog(Context context, int themeResId) {
         super(context, themeResId);
         initView(context);
     }
 
-    public RxDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
+    public BaseDialog(Context context, boolean cancelable, OnCancelListener cancelListener) {
         super(context, cancelable, cancelListener);
         initView(context);
     }
 
-    public RxDialog(Context context) {
+    public BaseDialog(Context context) {
         super(context);
         initView(context);
     }
@@ -55,7 +55,7 @@ public class RxDialog extends Dialog {
      * @param alpha   透明度 0.0f--1f(不透明)
      * @param gravity 方向(Gravity.BOTTOM,Gravity.TOP,Gravity.LEFT,Gravity.RIGHT)
      */
-    public RxDialog(Context context, float alpha, int gravity) {
+    public BaseDialog(Context context, float alpha, int gravity) {
         super(context);
         // TODO Auto-generated constructor stub
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -120,4 +120,6 @@ public class RxDialog extends Dialog {
     public void setOnWhole() {
         getWindow().setType(WindowManager.LayoutParams.TYPE_SYSTEM_ALERT);
     }
+
+
 }

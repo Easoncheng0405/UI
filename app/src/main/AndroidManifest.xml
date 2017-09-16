@@ -3,7 +3,9 @@
     package="com.example.chengjie.ui">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/fluidicon"
@@ -11,15 +13,19 @@
         android:roundIcon="@mipmap/fluidicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="chengjie.aty.Login" >
+        <activity android:name="chengjie.aty.Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="chengjie.aty.MainActivity"/>
-        <activity android:name="chengjie.aty.Regist"/>
+        <activity android:name="chengjie.aty.MainActivity" />
+        <activity android:name="chengjie.aty.Regist"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"/>
+        <activity android:name="chengjie.aty.RegistNext"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

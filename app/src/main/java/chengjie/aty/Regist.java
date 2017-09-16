@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.animation.LinearInterpolator;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 
 import com.example.chengjie.ui.R;
@@ -18,13 +19,14 @@ public class Regist extends Activity {
     private int screenHeight = 0;//屏幕高度
     private int keyHeight = 0; //软件盘弹起后所占高度
     private LinearLayout mContent;
-
+    private RelativeLayout service;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_regist);
         scrollView = (ScrollView) findViewById(R.id.scrollView);
+        service=(RelativeLayout)findViewById(R.id.service);
         screenHeight = this.getResources().getDisplayMetrics().heightPixels; //获取屏幕高度
         keyHeight = screenHeight / 3;//弹起高度为屏幕高度的1/3
         mContent = (LinearLayout) findViewById(R.id.content);
@@ -34,13 +36,13 @@ public class Regist extends Activity {
               /* old是改变前的左上右下坐标点值，没有old的是改变后的左上右下坐标点值
               现在认为只要控件将Activity向上推的高度超过了1/3屏幕高，就认为软键盘弹起*/
                 if (oldBottom != 0 && bottom != 0 && (oldBottom - bottom > keyHeight)) {
-                    int dist = 300;
+                    int dist = 250;
                     if (dist > 0) {
                         ObjectAnimator mAnimatorTranslateY = ObjectAnimator.ofFloat(mContent, "translationY", 0.0f, -dist);
                         mAnimatorTranslateY.setDuration(300);
                         mAnimatorTranslateY.setInterpolator(new LinearInterpolator());
                         mAnimatorTranslateY.start();
-
+                        service.setVisibility(View.INVISIBLE);
                     }
 
                 } else if (oldBottom != 0 && bottom != 0 && (bottom - oldBottom > keyHeight)) {
@@ -50,7 +52,7 @@ public class Regist extends Activity {
                         mAnimatorTranslateY.setInterpolator(new LinearInterpolator());
                         mAnimatorTranslateY.start();
                         //键盘收回后，logo恢复原来大小，位置同样回到初始位置
-
+                        service.setVisibility(View.VISIBLE);
                     }
 
                 }
